@@ -215,7 +215,9 @@ Context Precision: ~0.91
 
 ## License
 
-MIT License – see LICENSE file for details.
+```
+MIT License
+```
 
 ## Acknowledgements
 
