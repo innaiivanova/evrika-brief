@@ -1,0 +1,36 @@
+# In the final version you only need 3 commands to start the backend:
+# 1. create virtual environment
+# 2. start uvicorn
+# 3. start ngrok
+
+# source .venv/bin/activate
+# uvicorn evrika.voice_api:app --reload --port 8000
+# ngrok http 8000
+
+---
+# 1. Create & activate virtualenv (example for macOS/Linux)
+# python -m venv .venv
+# source .venv/bin/activate
+
+# 2. Install deps
+# pip install -r requirements.txt
+
+# 3. Run the CLI agent
+# python -m evrika.agent
+
+---
+# Gradio
+# cd evrika-brief
+# pip install gradio  # add to requirements.txt
+# python app_gradio.py
+
+---
+# Ngrok backend-link see .env
+# cd evrika-brief
+# uvicorn api:app --reload --port 8000
+# ngrok http 8000
+
+# Run backend
+# source .venv/bin/activate
+# uvicorn api:app --reload --port 8000
+# uvicorn evrika.voice_api:app --reload --port 8000
