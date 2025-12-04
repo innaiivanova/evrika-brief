@@ -47,10 +47,9 @@ Give it a YouTube URL and it will:
     - Relevant Models & Frameworks
     - Top Insights
     - Memorable Quotes
-  - Optional video **speaker** auto-extracted from the title.
   - PDF export for download.
 
-- **Voice Interface (optional)**
+- **Voice Interface**
   - FastAPI endpoint for speech-to-text + question answering.
   - Designed to be wired into a Lovable front-end with a microphone button.
 
@@ -223,6 +222,6 @@ MIT License
 
 - Ironhack AI Engineering Bootcamp for the project framework & support.
 
-- OpenAI, LangChain, Supabase and yt-dlp for the core building blocks.
+- OpenAI, LangChain, Supabase, YouTube and yt-dlp for the core building blocks.
 
 - Lovable for making it easy to plug an API into an interactive front-end.
