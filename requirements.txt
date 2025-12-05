@@ -16,7 +16,6 @@ pydub
 
 
 # PDF export
-fpdf2
 reportlab
 
 # Environment Variables
