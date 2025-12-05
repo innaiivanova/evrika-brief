@@ -104,35 +104,33 @@ High-level flow:
 
 ## Project Structure
 
-```
+## Repository structure
+
+```text
 evrika-brief/
-├─ evrika/                      # Core Python package
-│  ├─ __init__.py
-│  ├─ config.py                 # Env + clients (OpenAI, Supabase, text splitter, etc.)
-│  ├─ rag_pipeline.py           # Ingestion, RAG retrieval, brief generation, PDF helpers
-│  ├─ agent.py                  # LangChain agent: chat with the current video
-│  ├─ api_brief.py              # Functions to build the 1-page Evrika Brief
-│  ├─ transcripts.py            # Transcript utilities (YouTube/Whisper handling)
-│  ├─ audio_utils.py            # Audio splitting/processing helpers
-│  ├─ supabase_store.py         # Supabase/pgvector storage & RPC `match_documents`
-│  ├─ metadata_tool.py          # Tool for answering metadata questions (title, duration, speaker)
-│  └─ voice_api.py              # Voice API logic (used by voice FastAPI app)
-│
-├─ api.py                       # Main FastAPI app (used by Lovable: ingest, chat, brief)
-├─ app_gradio.py                # (Legacy) Gradio prototype UI – kept for reference
-├─ eval_ragas.py                # RAGAS evaluation script
-├─ make_pdf_from_text.py        # Standalone experiment for generating PDFs from text
-├─ brief.md                     # Evrika Brief markdown template
-├─ evrika_brief.pdf             # Example generated brief (sample output)
-├─ ragas_results.csv            # Example RAGAS evaluation results (sample output)
-├─ requirements.txt             # Minimal dependencies to run the project
-├─ full_requirements.txt        # Full dependency freeze (for reproducibility)
-├─ .env                         # Local environment variables (not committed)
-├─ .gitignore                   # Ignore venv, mp3 chunks, etc.
-├─ .venv/                       # Local virtual environment (ignored)
-└─ *.mp3                        # Downloaded YouTube audio + Whisper chunks (generated artifacts)
+├── api.py                  # Main FastAPI HTTP API (chat, ingest, brief) used by Lovable
+├── eval_ragas.py           # Script to evaluate the RAG pipeline with RAGAS
+├── requirements.txt        # Python dependencies
+├── .gitignore
+├── README.md
+
+├── evrika/                 # Core Evrika Briefs package
+│   ├── __init__.py         # Package marker
+│   ├── agent.py            # Conversational agent logic (tools, routing, chat history)
+│   ├── api_brief.py        # Helper endpoints / functions for brief generation
+│   ├── audio_utils.py      # STT/TTS utilities (Whisper + TTS)
+│   ├── config.py           # Shared config: OpenAI, Supabase, text splitter, chat memory
+│   ├── metadata_tool.py    # Metadata question-answering tool (title, speaker, length, ...)
+│   ├── rag_pipeline.py     # Core RAG pipeline: ingest, semantic search, QA, brief, PDF
+│   ├── supabase_store.py   # Supabase vector store + RPC helpers (match_documents, etc.)
+│   ├── transcripts.py      # YouTube download, transcription, chunking helpers
+│   └── voice_api.py        # FastAPI endpoints for voice Q&A (mic input + spoken answers)
+
+├── evaluation/             # Evaluation scripts (RAGAS)
+├── legacy/                 # Old experiments / prototypes kept for reference
+├── presentation/           # Project presentation
+└── tests/                  # PDF Tests 
 ```
-In Git, the .mp3 chunks, .venv, and other artifacts are ignored via .gitignore.
 
 ## Setup and Running the Backend in 3 steps
 
