@@ -136,7 +136,7 @@ evrika-brief/
 
 ```
 # In the final version you only need 3 commands to start the backend:
-# (requirements.txt and full_requirements.txt have been installed)
+# (requirements.txt has been installed)
 # (environment variables have been set)
 # 1. create virtual environment
 # 2. start uvicorn
@@ -179,7 +179,7 @@ NGROK_AUTH_TOKEN=...
 ### Start the voice API
 
 ```
-uvicorn evrika.voice_api:app --reload --port 8001
+uvicorn evrika.voice_api:app --reload --port 8000
 ```
 
 ### Tunnel it with ngrok for Lovable
