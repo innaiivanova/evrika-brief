@@ -14,7 +14,7 @@ from .config import openai_client
 
 
 def transcribe_question_bytes(
-    audio_bytes: bytes,
+    audio_bytes: bytes,  
     model: str = "whisper-1",
 ) -> str:
     """
